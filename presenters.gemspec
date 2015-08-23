@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Chen Yi-Cyuan"]
   spec.email         = ["emn178@gmail.com"]
 
-  spec.summary       = %q{A simple presenter pattern for ruby. It also can work in rails.}
-  spec.description   = %q{A simple presenter pattern for ruby. It also can work in rails.}
+  spec.summary       = %q{A simple presenter pattern for ruby. It can work in rails.}
+  spec.description   = %q{A simple presenter pattern for ruby. It can work in rails.}
   spec.homepage      = "https://github.com/emn178/presenters"
   spec.license       = "MIT"
 
