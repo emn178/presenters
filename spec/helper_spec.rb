@@ -49,4 +49,11 @@ RSpec.describe Presenters::Helper do
       }
     end
   end
+
+  describe "#presenters" do
+    subject { presenters(posts) }
+    let(:posts) { [Post.new, Post.new] }
+    its(:size) { should eq 2 }
+    it { expect(subject.first.class).to eq(PostPresenter) }
+  end
 end

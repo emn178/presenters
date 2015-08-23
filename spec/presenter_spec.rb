@@ -14,4 +14,12 @@ RSpec.describe Presenter do
       it { should respond_to(:content) }
     end
   end
+
+  describe "#present" do
+    context "with user" do
+      let(:user) { User.new }
+      let(:post) { Post.new :user => user}
+      its(:poster) { should eq "No Name" }
+    end
+  end
 end

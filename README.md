@@ -45,6 +45,7 @@ presenter.title # "No Title"
 # delegate to Post
 presenter.content # "My Content"
 ```
+### Helpers
 You can use `present` and `present_each` method to wrap objects. It will find presenter class in the prefix. (eg. Post => PostPresenter)
 ```ruby
 present(@post) do |post|
@@ -65,7 +66,38 @@ present_each(@posts, CustomPresenter) do |post|
   # do something...
 end
 ```
+You can use presenters to convert object array to presenters array
+```ruby
+presenters(@posts).each_with_index do |post, index|
+  # do something...
+end
+```
 You can use the helper in the view in rails application.
+
+### Use Presenters in Presenter
+If you want to use other presenters in the presenter. You can use following methods:
+```ruby
+class UserPresenter < Presenter
+  def name
+    super || "Anonymous"
+  end
+end
+
+class PostPresenter < Presenter
+  def poster
+    # You want to use UserPresenter and get its name here.
+  end
+end
+
+# method 1
+present(user).name
+
+# method 2
+UserPresenter.new(user).name
+
+# method 3, if user is a ActiveRecord::Base
+user.presenter.name
+```
 
 ## License
 

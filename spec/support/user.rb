@@ -1,7 +1,5 @@
-class Post
-  include Presenters::Model
-
-  attr_accessor :title, :content, :user
+class User
+  attr_accessor :name
 
   def initialize(attrs = {})
     attrs.each do |name, value|

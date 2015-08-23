@@ -1,6 +1,7 @@
 require "presenters/version"
-require "presenters/presenter"
 require "presenters/helper"
+require "presenters/model"
+require "presenters/presenter"
 
 module Presenters
   if defined?(::Rails::Engine)
@@ -11,6 +12,7 @@ module Presenters
         end
         Presenter.include ActionView::Helpers
         Presenter.include Rails.application.routes.url_helpers
+        ActiveRecord::Base.include Presenters::Model
       end
     end
   end
