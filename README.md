@@ -1,6 +1,8 @@
 # Presenters
 
-A simple presenter pattern for ruby. It also can work in rails. This is based on [Presenters in Rails](http://nithinbekal.com/posts/rails-presenters/)
+A simple presenter pattern for ruby. It can work in rails. This is based on [Presenters in Rails](http://nithinbekal.com/posts/rails-presenters/)
+
+[![Build Status](https://api.travis-ci.org/emn178/presenters.png)](https://travis-ci.org/emn178/presenters)
 
 ## Installation
 
@@ -18,11 +20,17 @@ Or install it yourself as:
 
     gem install presenters
 
+For rails, add this config in `config/application.rb`
+```ruby
+config.autoload_paths += %W(#{config.root}/presenters)
+```
+And you can put presenters in `app/presenters`
+
 ## Usage
 
 ### Create presenter class
 Assume you have a class named Post, you can create PostPresenter.
-```Ruby
+```ruby
 class PostPresenter < Presenter
   def title
     super || 'No Title'
@@ -30,15 +38,15 @@ class PostPresenter < Presenter
 end
 ```
 And you can wrap object like this:
-```Ruby
+```ruby
 post = Post.new :title => nil, :content => "My Content"
 presenter = PostPresenter.new post
 presenter.title # "No Title"
 # delegate to Post
 presenter.content # "My Content"
 ```
-You can use `present` and `present_each` method to wrap objects. It will find presenter class in the same name. (Eq: Post => PostPresenter)
-```Ruby
+You can use `present` and `present_each` method to wrap objects. It will find presenter class in the prefix. (eg. Post => PostPresenter)
+```ruby
 present(@post) do |post|
   # do something...
 end
@@ -46,9 +54,9 @@ end
 present_each(@posts) do |post|
   # do something...
 end
-```Ruby
+```
 You can specify presenter, too.
-```Ruby
+```ruby
 present(@post, CustomPresenter) do |post|
   # do something...
 end
@@ -56,7 +64,7 @@ end
 present_each(@posts, CustomPresenter) do |post|
   # do something...
 end
-```Ruby
+```
 You can use the helper in the view in rails application.
 
 ## License
