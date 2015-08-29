@@ -12,7 +12,7 @@ module Presenters
 
     def presenters(instances, class_type = nil)
       instances.map do |instance|
-        present(instance)
+        present(instance, class_type)
       end
     end
 

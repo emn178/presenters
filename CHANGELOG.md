@@ -1,3 +1,7 @@
+# v0.2.1 / 2015-08-29
+
+* Fixed presenters custom class bug.
+
 # v0.2.0 / 2015-08-23
 
 * Include helpers in Presenter.
