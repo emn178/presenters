@@ -1,8 +1,9 @@
 # Presenters
 
-A simple presenter pattern for ruby. It can work in rails. This is based on [Presenters in Rails](http://nithinbekal.com/posts/rails-presenters/)
-
 [![Build Status](https://api.travis-ci.org/emn178/presenters.png)](https://travis-ci.org/emn178/presenters)
+[![Coverage Status](https://coveralls.io/repos/emn178/presenters/badge.svg?branch=master)](https://coveralls.io/r/emn178/presenters?branch=master)
+
+A simple presenter pattern for ruby. It can work in rails. This is based on [Presenters in Rails](http://nithinbekal.com/posts/rails-presenters/)
 
 ## Installation
 
@@ -29,6 +30,10 @@ And you can put presenters in `app/presenters`
 ## Usage
 
 ### Create presenter class
+You can use rails generate to create presenters. Eg.
+
+    rails g presenter post
+
 Assume you have a class named Post, you can create PostPresenter.
 ```ruby
 class PostPresenter < Presenter

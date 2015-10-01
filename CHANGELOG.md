@@ -1,3 +1,7 @@
+# v0.3.0 / 2015-10-01
+
+* Add presenter generator.
+
 # v0.2.1 / 2015-08-29
 
 * Fixed presenters custom class bug.
